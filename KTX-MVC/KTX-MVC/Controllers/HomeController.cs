@@ -8,12 +8,13 @@ namespace KTX_MVC.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        MVCContext db;
+        MVCContext db, db1;
 
 
         public HomeController(MVCContext _db)
         {
             db = _db;
+            db1 = _db;
         }
 
         public IActionResult Index()
@@ -24,7 +25,7 @@ namespace KTX_MVC.Controllers
 
         public IActionResult Delete(String id)
         {
-            Students student = db.Students.FirstOrDefault(s => s.StudentId == id);
+            Students student = db.Students.FirstOrDefault(s => s.Id == id);
             if (student != null)
             {
                 db.Remove(student);
@@ -35,12 +36,38 @@ namespace KTX_MVC.Controllers
             return View();
         }
 
-        public IActionResult Insert(Students data)
+        public IActionResult Insert(FormSubmit data)
         {
             if (data != null)
             {
-                db.Students.Add(data);
+                Students student = new Students();
+
+                student.Id = data.StudentId;
+                student.StudentName = data.StudentName;
+                student.StudentDob = data.StudentDob;
+                student.StudentSex = data.StudentSex;
+                student.StudentPhone = data.StudentPhone;
+                student.StudentEmail = data.StudentEmail;
+                student.StudentLink = data.StudentLink;
+                student.StudentSpecialized = data.StudentSpecialized;
+                student.StudentMajors = data.StudentMajors;
+                student.StudentPrioritize = data.StudentPrioritize;
+                student.StudentPrioritizeImage = data.StudentPrioritizeImage;
+                student.StudentNote = data.StudentNote;
+
+                db.Students.Add(student);
                 db.SaveChanges();
+
+                Parrents parrents = new Parrents();
+
+                parrents.StudentsId = data.StudentId;
+                parrents.Address = data.StudentAddress + " - " + data.StudentAddress3 + " - " + data.StudentAddress2 + " - " + data.StudentAddress1;
+                parrents.DadName = data.DadName;
+                parrents.DadPhone = data.DadPhone;
+
+                db.Parrents.Add(parrents);
+                db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
 

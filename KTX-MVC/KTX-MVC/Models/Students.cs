@@ -6,13 +6,13 @@ namespace KTX_MVC.Models
     public class Students
     {
         [Key]
-        public String? StudentId { get; set; }
+        public String? Id { get; set; }
         public String? StudentName { get; set; }
         public DateTime? StudentDob { get; set; }
         public Boolean? StudentSex { get; set; }
         public String? StudentPhone { get; set; }
         public String? StudentEmail { get; set; }
-        public String? StudentAddress { get; set; }
+        public String? StudentNote { get; set; }
         public String? StudentSpecialized { get; set; }
 
         public String? StudentMajors { get; set; }

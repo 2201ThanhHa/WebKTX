@@ -6,7 +6,7 @@ namespace KTX_MVC.Models
     public class Parrents
     {
         [Key]
-        public String StudentId { get; set; }
+        public String StudentsId { get; set; }
         public String DadName { get; set; }
         public String DadJob { get; set; }
         public String DadPhone { get; set; }

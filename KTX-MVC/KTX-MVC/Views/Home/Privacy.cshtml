@@ -5,20 +5,15 @@
 @{
      ViewData["Title"] = "Đăng nhập";
      ViewData["Content"] = "ĐĂNG KÝ CHỖ Ở TẠI KÝ TÚC XÁ TRƯỜNG ĐẠI HỌC KINH TẾ - ĐẠI HỌC ĐÀ NẴNG";
-     ViewData["Title"] = "Đề nghị sinh viên điền thông tin trung thực và chính xác";
+     ViewData["Note"] = "Đề nghị sinh viên điền thông tin trung thực và chính xác";
     
 }
 <div class="text-center">
     <h3>@ViewBag.Content</h3>
-    <h4>@ViewBag.Note</h4>
+    <h4><span class="inputRequire">*</span> @ViewBag.Note</h4>
 
     @using (Html.BeginForm("Insert", "Home", FormMethod.Post, new { id = "stdform" }))
     {
-
-        <div class="text-danger">
-            @Html.ValidationSummary()
-            @Html.AntiForgeryToken()
-        </div>
 
         <div class="card mx-auto my-3 text-left" style="max-width: 70%;">
             <div class="card-header bg-primary">
@@ -29,43 +24,43 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="form-group">
-                                <label for="inputName">Họ và tên (*)</label>
+                                <label for="inputName">Họ và tên (<span class="inputRequire">*</span>) </label>
                                 <input type="text" class="form-control" id="inputName" name="StudentName" required>
                         </div>
 
                          <div class="form-group">
-                                <label for="inputDob">Ngày sinh</label>
-                                <input type="date" class="form-control" id="inputDob" required>
+                                <label for="inputDob">Ngày sinh (<span class="inputRequire">*</span>)</label>
+                                <input type="date" class="form-control" id="inputDob"  name="StudentDob" required>
                         </div>
 
                         <div class="form-group">
-                                <label for="inputEmail">Email</label>
-                                <input type="text" class="form-control" id="inputEmail" required>
+                                <label for="inputEmail">Email (<span class="inputRequire">*</span>)</label>
+                                <input type="text" class="form-control" id="inputEmail"  name="StudentEmail" required>
                         </div>
 
                          <div class="form-group">
-                                <label for="inputEmail">Số CMND/CCCD</label>
-                                <input type="text" class="form-control" id="inputID"  name="StudentId" required onpast="return false;" onKeyPress="return isNumber(event);">
+                                <label for="inputEmail">Số CMND/CCCD (<span class="inputRequire">*</span>)</label>
+                                <input type="text" class="form-control" id="inputID" maxlength="12"  name="StudentId" required onpast="return false;" onKeyPress="return isNumber(event);">
                         </div>
 
                     </div>
                     <div class="col-sm-6">
                          <div class="form-group">
-                                <label for="inputPhone">Số điện thoại</label>
-                                <input type="text" class="form-control" id="inputPhone" required onpast="return false;" onKeyPress="return isNumber(event);">
+                                <label for="inputPhone">Số điện thoại (<span class="inputRequire">*</span>)</label>
+                                <input type="text" class="form-control" id="inputPhone"  maxlength="13" name="StudentPhone" required onpast="return false;" onKeyPress="return isNumber(event);">
                         </div>
 
-                        <label for="inputSex">Giới tính</label>
-                        <select class="form-control" id="inputSex">
-                            <option value = "0" selected></option>
-                            <option value="1">Nam</option>
-                            <option value="2">Nữ</option>
+                        <label for="inputSex">Giới tính (<span class="inputRequire">*</span>)</label>
+                        <select class="form-control" id="inputSex" required name="StudentSex">
+                            <option  selected></option>
+                            <option value="true">Nam</option>
+                            <option value="false">Nữ</option>
                         </select>
 
                         
                          <div class="form-group">
-                                <label for="inputURL">Link Facebook</label>
-                                <input type="text" class="form-control" id="inputURL" required>
+                                <label for="inputURL">Link Facebook (<span class="inputRequire">*</span>)</label>
+                                <input type="text" class="form-control" id="inputURL"  name="StudentLink" required>
                         </div>
          
                     </div>
@@ -80,31 +75,27 @@
             </div>
             <div class="card-body">
                 <div class="form-group">
-                    <label for="inputAddress">Địa chỉ liên lạc của gia đình</label>
+                    <label for="inputAddress">Địa chỉ liên lạc của gia đình (<span class="inputRequire">*</span>)</label>
                 </div>
                 <div class="container">
                     <div class="form-group row">
                         <div class="col-sm pl-0">
-                             <select class="form-control" id="inputSex">
+                             <select class="form-control" id="inputAddress1"  name="StudentAddress1" required>
                                 <option value = "0" selected >--- Tỉnh / Thành phố ---</option>
-                                <option value="1">Nam</option>
-                                <option value="2">Nữ</option>
+                                <option value="43">Đà Nẵng</option>
+                                <option value="81">Gia Lai</option>
                             </select>
                 
                         </div>
                         <div class="col-sm">
-                             <select class="form-control" id="inputSex">
+                             <select class="form-control" id="inputAddress2" name="StudentAddress2" required>
                                 <option value = "0" selected >--- Quận/ Huyện ---</option>
-                                <option value="1">Nam</option>
-                                <option value="2">Nữ</option>
                             </select>
                  
                         </div>
                         <div class="col-sm pr-0">
-                             <select class="form-control" id="inputSex">
+                             <select class="form-control" id="inputAddress3" name="StudentAddress3" required>
                                 <option value = "0" selected >--- Xã / Phường ---</option>
-                                <option value="1">Nam</option>
-                                <option value="2">Nữ</option>
                             </select>
                     
                         </div>
@@ -112,16 +103,16 @@
                 </div>
               
                 <div class="form-group">
-                    <label for="inputAddress">Địa chỉ chi tiết</label>
-                    <input type="text" class="form-control" id="inputAddress">
+                    <label for="inputAddress">Địa chỉ chi tiết (<span class="inputRequire">*</span>)</label>
+                    <input type="text" class="form-control" id="inputAddress" name="StudentAddress" required>
                 </div>
                 <div class="form-group">
-                    <label for="inputParrentName">Họ tên phụ huynh (Bố hoặc mẹ)</label>
-                    <input type="text" class="form-control" id="inputParrentName">
+                    <label for="inputParrentName">Họ tên phụ huynh (Bố hoặc mẹ) (<span class="inputRequire">*</span>)</label>
+                    <input type="text" class="form-control" id="inputParrentName" name="DadName" required>
                 </div>
                 <div class="form-group">
-                    <label for="inputParrentPhone">Số điện thoại phụ huynh (Bố hoặc mẹ)</label>
-                    <input type="text" class="form-control" id="inputParrentPhone">
+                    <label for="inputParrentPhone">Số điện thoại phụ huynh (Bố hoặc mẹ) (<span class="inputRequire">*</span>)</label>
+                    <input type="text" class="form-control" id="inputParrentPhone" name="DadPhone" required>
                 </div>
             </div>
         </div>
@@ -133,18 +124,32 @@
             <div class="card-body">
                 <div class="form-group">
                     <label for="inputParrentPhone">Nghành trúng tuyển</label>
-                    <select class="form-control" id="exampleFormControlSelect1">
-                        <option>Kế Toán</option>
-                        <option>Quản Trị Kinh Doanh</option>
-                        <option>Kinh Doanh Quốc Tế</option>
+                    <select class="form-control" id="inputSpecialized" name="StudentSpecialized" >
+                        <option selected></option>
+                        <option value = "1">Kinh Doanh Quốc Tế</option>
+                        <option value = "2">Quản Trị Kinh Doanh</option>
+                        <option value = "3">Quản trị dịch vụ du lịch và lữ hành</option>
+                        <option value = "4">Kinh Tế</option>
+                        <option value = "5">Thống kê Kinh tế</option>
+                        <option value = "6">Kế Toán</option>
+                        <option value = "7">Tài chính ngân hàng</option>
+                        <option value = "8">Kinh doanh thương mại</option>
+                        <option value = "9">Quản lý nhà nước</option>
+                        <option value = "10">Kinh Doanh Quốc Tế</option>
+                        <option value = "11">Quản Trị Kinh Doanh</option>
+                        <option value = "12">Quản trị dịch vụ du lịch và lữ hành</option>
+                        <option value = "13">Kinh Tế</option>
+                        <option value = "14">Thống kê Kinh tế</option>
+                        <option value = "15">Kế Toán</option>
+                        <option value = "16">Tài chính ngân hàng</option>
+                        <option value = "17">Kinh doanh thương mại</option>
+                        <option value = "18">Quản lý nhà nước</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="inputParrentPhone">Chuyên nghành dự kiến đăng ký (Nếu có)</label>
-                    <select class="form-control" id="exampleFormControlSelect1">
-                        <option>Quản trị kinh doanh tổng quát</option>
-                        <option>Quản trị chuỗi cung ứng và Logistic</option>
-                        <option>Quản trị tài chính</option>
+                    <select class="form-control" id="inputMajors" name="StudentMajors">
+                        <option selected></option>
                     </select>
                 </div>
             </div>
@@ -156,25 +161,31 @@
             </div>
             <div class="card-body">
                 <div class="form-group">
-                    <label for="inputParrentPhone">Đối tượng ưu tiên</label>
-                    <select class="form-control" id="exampleFormControlSelect1">
-                        <option>Sinh viên đạt giải Quốc gia hoặc Quốc tế</option>
-                        <option>Sinh viên là con của liệt sỹ</option>
-                        <option>Sinh viên là con của thương binh</option>
+                    <label for="inputPrioritize">Đối tượng ưu tiên (<span class="inputRequire">*</span>)</label>
+                    <select class="form-control" id="inputPrioritize" name="StudentPrioritize" required>
+                        <option selected></option>
+                        <option value = "1">Sinh viên đạt giải Quốc gia hoặc Quốc tế</option>
+                        <option value = "2">Sinh viên là con của liệt sỹ</option>
+                        <option value = "3">Sinh viên là con của thương binh</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="inputParrentPhone">Minh chứng</label>
+                    <label for="inputParrentPhone">Minh chứng (<span class="inputRequire">*</span>)</label>
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="customFile">
+                        <input type="file" class="custom-file-input" id="customFile" name="StudentPrioritizeImage" required>
                         <label class="custom-file-label" for="customFile">Choose file</label>
                     </div>
+                </div>
+
+                 <div class="form-group">
+                    <label for="inputStudentNote">Ghi chú (Nếu có)</label>
+                    <input type="text" class="form-control" id="inputStudentNote" name="StudentNote">
                 </div>
 
             </div>
         </div>
 
-        <input type="submit" class="btn btn-primary " value="Submit" />
+        <input type="submit" class="btn btn-primary " value="Đăng ký" />
 
     }
 
@@ -189,4 +200,109 @@
         }
         return true;
     }
+
+    function validateDateInput() {
+        document.getElementById('inputDob').min = "1000-01-01";
+        document.getElementById('inputDob').max = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().split("T")[0];
+    }
+
+    function updateValueMajor() {
+        var inputSpecialized = document.getElementById('inputSpecialized');
+        if(inputSpecialized){
+            inputSpecialized.addEventListener('change', function(){
+                  var inputMajors = document.getElementById('inputMajors');
+                  if(inputMajors){
+                        for (var i=0; i<inputMajors.length; i++) {
+                            inputMajors.remove(i);
+                        }
+                        switch (inputSpecialized.value) {
+                           case "1":
+                                var opt = document.createElement('option');
+                                opt.value = 1;
+                                opt.innerHTML = "Ngoại thương (K01)";
+                                inputMajors.appendChild(opt);
+                                break;
+                            case "2":
+                                var opt = document.createElement('option');
+                                opt.value = 2;
+                                opt.innerHTML = "Quản trị kinh doanh tổng quát (K02)";
+                                inputMajors.appendChild(opt);
+                                break;
+   
+                     
+                        }
+                      
+                  }
+            });
+        }
+    }
+
+    function updateValueAdress() {
+        var inputSpecialized = document.getElementById('inputAddress1');
+        if(inputSpecialized){
+            inputSpecialized.addEventListener('change', function(){
+                 updateValueAdressDistrict(inputSpecialized.value);
+                 updateValueAdressCommune(inputSpecialized.value);
+            });
+        }
+    }
+
+    function updateValueAdressDistrict(value) {
+        var inputMajors = document.getElementById('inputAddress2');
+        if(inputMajors){
+            for (var i=0; i<inputMajors.length; i++) {
+                inputMajors.remove(i);
+            }
+            switch (value) {
+                case "43":
+                    var opt = document.createElement('option');
+                    opt.value = "Ngũ Hành Sơn";
+                    opt.innerHTML = "Ngũ Hành Sơn";
+                    inputMajors.appendChild(opt);
+                    break;
+                case "81":
+                    var opt = document.createElement('option');
+                    opt.value = "Đức Cơ";
+                    opt.innerHTML = "Đức Cơ";
+                    inputMajors.appendChild(opt);
+                    break;
+   
+                     
+            }
+                      
+        }
+    }
+
+    function updateValueAdressCommune(value) {
+        var inputMajors = document.getElementById('inputAddress3');
+        if(inputMajors){
+            for (var i=0; i<inputMajors.length; i++) {
+                inputMajors.remove(i);
+            }
+            switch (value) {
+                case "43":
+                    var opt = document.createElement('option');
+                    opt.value = "Khuê Mỹ";
+                    opt.innerHTML = "Khuê Mỹ";
+                    inputMajors.appendChild(opt);
+                    break;
+                case "81":
+                    var opt = document.createElement('option');
+                    opt.value = "IAKLA";
+                    opt.innerHTML = "IAKLA";
+                    inputMajors.appendChild(opt);
+                    break;
+   
+                     
+            }
+                      
+        }
+    }
+
+    window.onload = function() {
+       validateDateInput();
+       updateValueMajor();
+       updateValueAdress();
+    }
+    
 </script>

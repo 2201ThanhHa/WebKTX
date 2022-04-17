@@ -48,6 +48,7 @@ body {
 
 footer {
     font-size: 20px;
+    color: #ffffff !important;
 }
 
 .mt-50px {
@@ -56,4 +57,8 @@ footer {
 
 .pl-80px {
     padding-left: 80px !important;
+}
+
+.inputRequire{
+    color: red;
 }

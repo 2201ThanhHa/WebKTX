@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\manhp\\source\\repos\\KTX-MVC\\KTX-MVC\\KTX-MVC.csproj": {}
+    "D:\\DotNET\\KTX-MVC\\KTX-MVC\\KTX-MVC.csproj": {}
   },
   "projects": {
-    "C:\\Users\\manhp\\source\\repos\\KTX-MVC\\KTX-MVC\\KTX-MVC.csproj": {
+    "D:\\DotNET\\KTX-MVC\\KTX-MVC\\KTX-MVC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\manhp\\source\\repos\\KTX-MVC\\KTX-MVC\\KTX-MVC.csproj",
+        "projectUniqueName": "D:\\DotNET\\KTX-MVC\\KTX-MVC\\KTX-MVC.csproj",
         "projectName": "KTX-MVC",
-        "projectPath": "C:\\Users\\manhp\\source\\repos\\KTX-MVC\\KTX-MVC\\KTX-MVC.csproj",
+        "projectPath": "D:\\DotNET\\KTX-MVC\\KTX-MVC\\KTX-MVC.csproj",
         "packagesPath": "C:\\Users\\manhp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\manhp\\source\\repos\\KTX-MVC\\KTX-MVC\\obj\\",
+        "outputPath": "D:\\DotNET\\KTX-MVC\\KTX-MVC\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\manhp\\AppData\\Roaming\\NuGet\\NuGet.Config",
