@@ -1,0 +1,192 @@
+﻿@{
+    ViewData["Title"] = "Privacy Policy";
+}
+
+@{
+     ViewData["Title"] = "Đăng nhập";
+     ViewData["Content"] = "ĐĂNG KÝ CHỖ Ở TẠI KÝ TÚC XÁ TRƯỜNG ĐẠI HỌC KINH TẾ - ĐẠI HỌC ĐÀ NẴNG";
+     ViewData["Title"] = "Đề nghị sinh viên điền thông tin trung thực và chính xác";
+    
+}
+<div class="text-center">
+    <h3>@ViewBag.Content</h3>
+    <h4>@ViewBag.Note</h4>
+
+    @using (Html.BeginForm("Insert", "Home", FormMethod.Post, new { id = "stdform" }))
+    {
+
+        <div class="text-danger">
+            @Html.ValidationSummary()
+            @Html.AntiForgeryToken()
+        </div>
+
+        <div class="card mx-auto my-3 text-left" style="max-width: 70%;">
+            <div class="card-header bg-primary">
+                THÔNG TIN CÁ NHÂN
+            </div>
+            <div class="card-body">
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                                <label for="inputName">Họ và tên (*)</label>
+                                <input type="text" class="form-control" id="inputName" name="StudentName" required>
+                        </div>
+
+                         <div class="form-group">
+                                <label for="inputDob">Ngày sinh</label>
+                                <input type="date" class="form-control" id="inputDob" required>
+                        </div>
+
+                        <div class="form-group">
+                                <label for="inputEmail">Email</label>
+                                <input type="text" class="form-control" id="inputEmail" required>
+                        </div>
+
+                         <div class="form-group">
+                                <label for="inputEmail">Số CMND/CCCD</label>
+                                <input type="text" class="form-control" id="inputID"  name="StudentId" required onpast="return false;" onKeyPress="return isNumber(event);">
+                        </div>
+
+                    </div>
+                    <div class="col-sm-6">
+                         <div class="form-group">
+                                <label for="inputPhone">Số điện thoại</label>
+                                <input type="text" class="form-control" id="inputPhone" required onpast="return false;" onKeyPress="return isNumber(event);">
+                        </div>
+
+                        <label for="inputSex">Giới tính</label>
+                        <select class="form-control" id="inputSex">
+                            <option value = "0" selected></option>
+                            <option value="1">Nam</option>
+                            <option value="2">Nữ</option>
+                        </select>
+
+                        
+                         <div class="form-group">
+                                <label for="inputURL">Link Facebook</label>
+                                <input type="text" class="form-control" id="inputURL" required>
+                        </div>
+         
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="card mx-auto my-3 text-left" style="max-width: 70%;">
+            <div class="card-header bg-primary">
+                THÔNG TIN LIÊN LẠC VỚI PHỤ HUYNH
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="inputAddress">Địa chỉ liên lạc của gia đình</label>
+                </div>
+                <div class="container">
+                    <div class="form-group row">
+                        <div class="col-sm pl-0">
+                             <select class="form-control" id="inputSex">
+                                <option value = "0" selected >--- Tỉnh / Thành phố ---</option>
+                                <option value="1">Nam</option>
+                                <option value="2">Nữ</option>
+                            </select>
+                
+                        </div>
+                        <div class="col-sm">
+                             <select class="form-control" id="inputSex">
+                                <option value = "0" selected >--- Quận/ Huyện ---</option>
+                                <option value="1">Nam</option>
+                                <option value="2">Nữ</option>
+                            </select>
+                 
+                        </div>
+                        <div class="col-sm pr-0">
+                             <select class="form-control" id="inputSex">
+                                <option value = "0" selected >--- Xã / Phường ---</option>
+                                <option value="1">Nam</option>
+                                <option value="2">Nữ</option>
+                            </select>
+                    
+                        </div>
+                    </div>
+                </div>
+              
+                <div class="form-group">
+                    <label for="inputAddress">Địa chỉ chi tiết</label>
+                    <input type="text" class="form-control" id="inputAddress">
+                </div>
+                <div class="form-group">
+                    <label for="inputParrentName">Họ tên phụ huynh (Bố hoặc mẹ)</label>
+                    <input type="text" class="form-control" id="inputParrentName">
+                </div>
+                <div class="form-group">
+                    <label for="inputParrentPhone">Số điện thoại phụ huynh (Bố hoặc mẹ)</label>
+                    <input type="text" class="form-control" id="inputParrentPhone">
+                </div>
+            </div>
+        </div>
+
+        <div class="card m-auto text-left" style="max-width: 70%;">
+            <div class="card-header bg-primary">
+                THÔNG TIN NGHÀNH TRÚNG TUYỂN
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="inputParrentPhone">Nghành trúng tuyển</label>
+                    <select class="form-control" id="exampleFormControlSelect1">
+                        <option>Kế Toán</option>
+                        <option>Quản Trị Kinh Doanh</option>
+                        <option>Kinh Doanh Quốc Tế</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="inputParrentPhone">Chuyên nghành dự kiến đăng ký (Nếu có)</label>
+                    <select class="form-control" id="exampleFormControlSelect1">
+                        <option>Quản trị kinh doanh tổng quát</option>
+                        <option>Quản trị chuỗi cung ứng và Logistic</option>
+                        <option>Quản trị tài chính</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mx-auto my-3 text-left" style="max-width: 70%;">
+            <div class="card-header bg-primary">
+                ĐỐI TƯỢNG ƯU TIÊN
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="inputParrentPhone">Đối tượng ưu tiên</label>
+                    <select class="form-control" id="exampleFormControlSelect1">
+                        <option>Sinh viên đạt giải Quốc gia hoặc Quốc tế</option>
+                        <option>Sinh viên là con của liệt sỹ</option>
+                        <option>Sinh viên là con của thương binh</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="inputParrentPhone">Minh chứng</label>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="customFile">
+                        <label class="custom-file-label" for="customFile">Choose file</label>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <input type="submit" class="btn btn-primary " value="Submit" />
+
+    }
+
+</div>
+
+<script type="text/javascript">
+    function isNumber(evt) {
+        evt = (evt) ? evt : window.event;
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if ((charCode > 31 && charCode < 48) || charCode > 57) {
+            return false;
+        }
+        return true;
+    }
+</script>

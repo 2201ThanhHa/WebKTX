@@ -1,0 +1,59 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+
+.carousel-control-prev, .carousel-control-next {
+    width: 100px !important;
+}
+
+
+.carousel-caption {
+    bottom: 40% !important;
+}
+
+.title-slide {
+    color: red;
+    font-weight: 700;
+}
+
+.hr-header {
+    height: 5px;
+    background-color: #25639B;
+}
+
+.bg-blue {
+    background-color: #25639B;
+    color: #ffffff;
+}
+
+.title-column-footer {
+    font-weight: 700;
+}
+
+footer {
+    font-size: 20px;
+}
+
+.mt-50px {
+    margin-top: 50px;
+}
+
+.pl-80px {
+    padding-left: 80px !important;
+}
