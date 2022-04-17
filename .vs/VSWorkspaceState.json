@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\KTX",
+    "\\KTX\\KTX",
+    "\\KTX\\KTX\\Views",
+    "\\KTX\\KTX\\Views\\Home"
   ],
-  "SelectedNode": "\\D:\\DotNET",
+  "SelectedNode": "\\KTX\\KTX.sln",
   "PreviewInSolutionExplorer": false
 }

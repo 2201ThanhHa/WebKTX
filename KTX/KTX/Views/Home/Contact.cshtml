@@ -59,7 +59,7 @@
                             @Html.LabelFor(model => model.StdSex, "Giới tính")
                             @Html.DropDownListFor(model => model.StdSex,
                                                             new List<SelectListItem> {
-                                                                new SelectListItem { Value = "0" , Text = "Chọn" },
+                                                                new SelectListItem { Value = "0" , Text = "" },
                                                                 new SelectListItem { Value = "1" , Text = "Nam" },
                                                                 new SelectListItem { Value = "2" , Text = "Nữ" }
                                                             }, 
@@ -143,17 +143,17 @@
                 <div class="form-group">
                     <label for="inputParrentPhone">Nghành trúng tuyển</label>
                     <select class="form-control" id="exampleFormControlSelect1">
-                        <option></option>
-                        <option>2</option>
-                        <option>3</option>
+                        <option>Kế Toán</option>
+                        <option>Quản Trị Kinh Doanh</option>
+                        <option>Kinh Doanh Quốc Tế</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="inputParrentPhone">Chuyên nghành dự kiến đăng ký (Nếu có)</label>
                     <select class="form-control" id="exampleFormControlSelect1">
-                        <option></option>
-                        <option>2</option>
-                        <option>3</option>
+                        <option>Quản trị kinh doanh tổng quát</option>
+                        <option>Quản trị chuỗi cung ứng và Logistic</option>
+                        <option>Quản trị tài chính</option>
                     </select>
                 </div>
             </div>
@@ -167,9 +167,9 @@
                 <div class="form-group">
                     <label for="inputParrentPhone">Đối tượng ưu tiên</label>
                     <select class="form-control" id="exampleFormControlSelect1">
-                        <option></option>
-                        <option>2</option>
-                        <option>3</option>
+                        <option>Sinh viên đạt giải Quốc gia hoặc Quốc tế</option>
+                        <option>Sinh viên là con của liệt sỹ</option>
+                        <option>Sinh viên là con của thương binh</option>
                     </select>
                 </div>
                 <div class="form-group">
