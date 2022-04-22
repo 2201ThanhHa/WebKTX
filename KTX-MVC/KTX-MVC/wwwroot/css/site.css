@@ -14,9 +14,15 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    padding-top: 0px;
+    padding-bottom: 0px;
 }
 
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
 
 .carousel-control-prev, .carousel-control-next {
     width: 100px !important;
@@ -48,7 +54,9 @@ body {
 
 footer {
     font-size: 20px;
-    color: #ffffff !important;
+}
+.text-muted {
+    color: #fff !important;
 }
 
 .mt-50px {
@@ -61,4 +69,14 @@ footer {
 
 .inputRequire{
     color: red;
+}
+
+.bg-primary {
+    background-color: #25639B !important;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.form-control-lg {
+    font-size: 0.95rem;
 }

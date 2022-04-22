@@ -135,15 +135,15 @@
                         <option value = "7">Tài chính ngân hàng</option>
                         <option value = "8">Kinh doanh thương mại</option>
                         <option value = "9">Quản lý nhà nước</option>
-                        <option value = "10">Kinh Doanh Quốc Tế</option>
-                        <option value = "11">Quản Trị Kinh Doanh</option>
-                        <option value = "12">Quản trị dịch vụ du lịch và lữ hành</option>
-                        <option value = "13">Kinh Tế</option>
-                        <option value = "14">Thống kê Kinh tế</option>
-                        <option value = "15">Kế Toán</option>
-                        <option value = "16">Tài chính ngân hàng</option>
-                        <option value = "17">Kinh doanh thương mại</option>
-                        <option value = "18">Quản lý nhà nước</option>
+                        <option value = "10">Marketing</option>
+                        <option value = "11">Luật Kinh tế</option>
+                        <option value = "12">Hệ thống thông tin quản lý</option>
+                        <option value = "13">Quản trị nhân lực</option>
+                        <option value = "14">Kiểm toán</option>
+                        <option value = "15">Luật</option>
+                        <option value = "16">Thương mại điện tử</option>
+                        <option value = "17">Quản trị Khách sạn</option>
+                        <option value = "18">Khoa học dữ liệu & Phân tích kinh doanh</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -212,9 +212,7 @@
             inputSpecialized.addEventListener('change', function(){
                   var inputMajors = document.getElementById('inputMajors');
                   if(inputMajors){
-                        for (var i=0; i<inputMajors.length; i++) {
-                            inputMajors.remove(i);
-                        }
+                        inputMajors.innerHTML = "";
                         switch (inputSpecialized.value) {
                            case "1":
                                 var opt = document.createElement('option');
@@ -227,9 +225,19 @@
                                 opt.value = 2;
                                 opt.innerHTML = "Quản trị kinh doanh tổng quát (K02)";
                                 inputMajors.appendChild(opt);
+                                var opt1 = document.createElement('option');
+                                opt1.value = 16;
+                                opt1.innerHTML = "Quản trị tài chính (K16)";
+                                inputMajors.appendChild(opt1);
+                                var opt2 = document.createElement('option');
+                                opt2.value = 25;
+                                opt2.innerHTML = "Quản trị chuỗi cung ứng và Logistics (K25)";
+                                inputMajors.appendChild(opt2);
+                                var opt3 = document.createElement('option');
+                                opt3.value = 30;
+                                opt3.innerHTML = "Kinh doanh số (K30)";
+                                inputMajors.appendChild(opt3);
                                 break;
-   
-                     
                         }
                       
                   }

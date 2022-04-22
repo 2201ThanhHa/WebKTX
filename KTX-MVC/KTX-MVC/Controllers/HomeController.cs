@@ -41,8 +41,9 @@ namespace KTX_MVC.Controllers
             if (data != null)
             {
                 Students student = new Students();
+                Parrents parrents = new Parrents();
 
-                student.Id = data.StudentId;
+                student.Id = parrents.StudentsId = data.StudentId;
                 student.StudentName = data.StudentName;
                 student.StudentDob = data.StudentDob;
                 student.StudentSex = data.StudentSex;
@@ -58,9 +59,6 @@ namespace KTX_MVC.Controllers
                 db.Students.Add(student);
                 db.SaveChanges();
 
-                Parrents parrents = new Parrents();
-
-                parrents.StudentsId = data.StudentId;
                 parrents.Address = data.StudentAddress + " - " + data.StudentAddress3 + " - " + data.StudentAddress2 + " - " + data.StudentAddress1;
                 parrents.DadName = data.DadName;
                 parrents.DadPhone = data.DadPhone;
@@ -68,7 +66,8 @@ namespace KTX_MVC.Controllers
                 db.Parrents.Add(parrents);
                 db.SaveChanges();
 
-                return RedirectToAction("Index");
+                int status = 200;
+                return View(status);
             }
 
             return View();
