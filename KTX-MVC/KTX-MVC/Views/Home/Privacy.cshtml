@@ -206,41 +206,182 @@
         document.getElementById('inputDob').max = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().split("T")[0];
     }
 
-    function updateValueMajor() {
+    function updateValueMajor() 
+    {
         var inputSpecialized = document.getElementById('inputSpecialized');
-        if(inputSpecialized){
-            inputSpecialized.addEventListener('change', function(){
+        if(inputSpecialized)
+        {
+            inputSpecialized.addEventListener('change', function()
+            {
                   var inputMajors = document.getElementById('inputMajors');
-                  if(inputMajors){
+                  if(inputMajors)
+                  {
                         inputMajors.innerHTML = "";
-                        switch (inputSpecialized.value) {
+                        switch (inputSpecialized.value) 
+                        {
                            case "1":
                                 var opt = document.createElement('option');
                                 opt.value = 1;
                                 opt.innerHTML = "Ngoại thương (K01)";
                                 inputMajors.appendChild(opt);
                                 break;
-                            case "2":
+                           case "2":
                                 var opt = document.createElement('option');
                                 opt.value = 2;
                                 opt.innerHTML = "Quản trị kinh doanh tổng quát (K02)";
                                 inputMajors.appendChild(opt);
-                                var opt1 = document.createElement('option');
-                                opt1.value = 16;
-                                opt1.innerHTML = "Quản trị tài chính (K16)";
-                                inputMajors.appendChild(opt1);
-                                var opt2 = document.createElement('option');
-                                opt2.value = 25;
-                                opt2.innerHTML = "Quản trị chuỗi cung ứng và Logistics (K25)";
-                                inputMajors.appendChild(opt2);
-                                var opt3 = document.createElement('option');
-                                opt3.value = 30;
-                                opt3.innerHTML = "Kinh doanh số (K30)";
-                                inputMajors.appendChild(opt3);
+                                var opt = document.createElement('option');
+                                opt.value = 16;
+                                opt.innerHTML = "Quản trị tài chính (K16)";
+                                inputMajors.appendChild(opt);
+                                var opt = document.createElement('option');
+                                opt.value = 25;
+                                opt.innerHTML = "Quản trị chuỗi cung ứng và Logistics (K25)";
+                                inputMajors.appendChild(opt);
+                                var opt = document.createElement('option');
+                                opt.value = 30;
+                                opt.innerHTML = "Kinh doanh số (K30)";
+                                inputMajors.appendChild(opt);
                                 break;
+                           case "3":
+                                var opt = document.createElement('option');
+                                opt.value = 3;
+                                opt.innerHTML = "Quản trị kinh doanh du lịch (K03)";
+                                inputMajors.appendChild(opt);
+                                var opt = document.createElement('option');
+                                opt.value = 26;
+                                opt.innerHTML = "Quản trị sự kiện (K26)";
+                                inputMajors.appendChild(opt);
+                                break;
+                           case "4":
+                                var opt = document.createElement('option');
+                                opt.value = 4;
+                                opt.innerHTML = "Kinh tế phát triển (K04)";
+                                inputMajors.appendChild(opt);
+                                var opt = document.createElement('option');
+                                opt.value = 11;
+                                opt.innerHTML = "Kinh tế và quản lý công (K11)";
+                                inputMajors.appendChild(opt);
+                                var opt = document.createElement('option');
+                                opt.value = 20;
+                                opt.innerHTML = "Kinh tế đầu tư (K20)";
+                                inputMajors.appendChild(opt);
+                                var opt = document.createElement('option');
+                                opt.value = 32;
+                                opt.innerHTML = "Kinh tế quốc tế (K32)";
+                                inputMajors.appendChild(opt);
+                                break;
+                           case "5":
+                                var opt = document.createElement('option');
+                                opt.value = 5;
+                                opt.innerHTML = "Thống kê Kinh tế - Xã hội (K05)";
+                                inputMajors.appendChild(opt);
+                                break;
+                           case "6":
+                                var opt = document.createElement('option');
+                                opt.value = 6;
+                                opt.innerHTML = "Kế toán (K06)";
+                                inputMajors.appendChild(opt);
+                                break;
+                           case "7":
+                                var opt = document.createElement('option');
+                                opt.value = 7;
+                                opt.innerHTML = "Ngân hàng (K07)";
+                                inputMajors.appendChild(opt);
+                                var opt = document.createElement('option');
+                                opt.value = 15;
+                                opt.innerHTML = "Tài chính doanh nghiệp (K15)";
+                                inputMajors.appendChild(opt);
+                                var opt = document.createElement('option');
+                                opt.value = 24;
+                                opt.innerHTML = "Tài chính công (K24)";
+                                inputMajors.appendChild(opt);
+                                break;
+                           case "8":
+                                var opt = document.createElement('option');
+                                opt.value = 8;
+                                opt.innerHTML = "Quản trị kinh doanh thương mại (K08)";
+                                inputMajors.appendChild(opt);
+                                break;
+                           case "9":
+                                var opt = document.createElement('option');
+                                opt.value = 9;
+                                opt.innerHTML = "Kinh tế chính trị (K09)";
+                                inputMajors.appendChild(opt);
+                                var opt = document.createElement('option');
+                                opt.value = 27;
+                                opt.innerHTML = "Hành chính công (K27)";
+                                inputMajors.appendChild(opt); 
+                                break;
+                           case "10":
+                                var opt = document.createElement('option');
+                                opt.value = 12;
+                                opt.innerHTML = "Quản trị Marketing (K12)";
+                                inputMajors.appendChild(opt);
+                                var opt = document.createElement('option');
+                                opt.value = 28;
+                                opt.innerHTML = "Truyền thông Marketing (K28)";
+                                inputMajors.appendChild(opt);
+                                var opt = document.createElement('option');
+                                opt.value = 31;
+                                opt.innerHTML = "Marketing số (K31)";
+                                inputMajors.appendChild(opt);
+                                break;
+                           case "11":
+                                var opt = document.createElement('option');
+                                opt.value = 13;
+                                opt.innerHTML = "Luật kinh doanh (K13)";
+                                inputMajors.appendChild(opt);
+                                break;
+                           case "12":
+                                var opt = document.createElement('option');
+                                opt.value = 14;
+                                opt.innerHTML = "Tin học quản lý (K14)";
+                                inputMajors.appendChild(opt);
+                                var opt = document.createElement('option');
+                                opt.value = 21;
+                                opt.innerHTML = "Quản trị Hệ thống thông tin (K21)";
+                                inputMajors.appendChild(opt);
+                                break;
+                           case "13":
+                                var opt = document.createElement('option');
+                                opt.value = 17;
+                                opt.innerHTML = "Quản trị nguồn nhân lực (K17)";
+                                inputMajors.appendChild(opt);
+                                break;
+                           case "14":
+                                var opt = document.createElement('option');
+                                opt.value = 18;
+                                opt.innerHTML = "Kiểm toán (K18)";
+                                inputMajors.appendChild(opt);
+                                break;
+                           case "15":
+                                var opt = document.createElement('option');
+                                opt.value = 19;
+                                opt.innerHTML = "Luật học (K19)";
+                                inputMajors.appendChild(opt);
+                                break;
+                           case "16":
+                                var opt = document.createElement('option');
+                                opt.value = 22;
+                                opt.innerHTML = "Thương mại điện tử (K22)";
+                                inputMajors.appendChild(opt);
+                                break;
+                           case "17":
+                                var opt = document.createElement('option');
+                                opt.value = 23;
+                                opt.innerHTML = "Quản trị khách sạn (K23)";
+                                inputMajors.appendChild(opt);
+                                break;
+                           case "18":
+                                var opt = document.createElement('option');
+                                opt.value = 29;
+                                opt.innerHTML = "Khoa học dữ liệu và Phân tích kinh doanh (K29)";
+                                inputMajors.appendChild(opt);
+                                break;
+                  
                         }
-                      
-                  }
+                   }
             });
         }
     }
