@@ -1,13 +1,6 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\KTX\\App_Start",
-    "\\KTX\\Content",
-    "\\KTX\\Controllers",
-    "\\KTX\\Models",
-    "\\KTX\\Views",
-    "\\KTX\\Views\\Home",
-    "\\KTX\\Views\\Shared"
+    ""
   ],
   "PreviewInSolutionExplorer": false
 }

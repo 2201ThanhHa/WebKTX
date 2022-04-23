@@ -19,7 +19,7 @@ namespace KTX_MVC.Controllers
         public IActionResult Index()
         {
             IEnumerable<Students> studens = db.Students.Select(s => s).ToList();
-          
+            IEnumerable<Parrents> parrent = db.Parrents.Select(s => s).ToList();
             return View();
         }
 
@@ -58,7 +58,7 @@ namespace KTX_MVC.Controllers
                 db.SaveChanges();
 
                 Parrents parrent = new Parrents();
-                parrent.StudentsId = data.Id;
+                parrent.StudentsId = data.StudentId;
                 parrent.Address = data.StudentAddress + " - " + data.StudentAddress3 + " - " + data.StudentAddress2 + " - " + data.StudentAddress1;
                 parrent.DadName = data.DadName;
                 parrent.DadPhone = data.DadPhone;
