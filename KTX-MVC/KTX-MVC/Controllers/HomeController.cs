@@ -8,19 +8,19 @@ namespace KTX_MVC.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        MVCContext db, db1;
+        MVCContext db;
 
 
         public HomeController(MVCContext _db)
         {
             db = _db;
-            db1 = _db;
         }
 
         public IActionResult Index()
         {
             IEnumerable<Students> studens = db.Students.Select(s => s).ToList();
-            return View(studens);
+          
+            return View();
         }
 
         public IActionResult Delete(String id)
@@ -38,12 +38,10 @@ namespace KTX_MVC.Controllers
 
         public IActionResult Insert(FormSubmit data)
         {
-            if (data != null)
+            try
             {
                 Students student = new Students();
-                Parrents parrents = new Parrents();
-
-                student.Id = parrents.StudentsId = data.StudentId;
+                student.Id = data.StudentId;
                 student.StudentName = data.StudentName;
                 student.StudentDob = data.StudentDob;
                 student.StudentSex = data.StudentSex;
@@ -59,24 +57,29 @@ namespace KTX_MVC.Controllers
                 db.Students.Add(student);
                 db.SaveChanges();
 
-                parrents.Address = data.StudentAddress + " - " + data.StudentAddress3 + " - " + data.StudentAddress2 + " - " + data.StudentAddress1;
-                parrents.DadName = data.DadName;
-                parrents.DadPhone = data.DadPhone;
+                Parrents parrent = new Parrents();
+                parrent.StudentsId = data.Id;
+                parrent.Address = data.StudentAddress + " - " + data.StudentAddress3 + " - " + data.StudentAddress2 + " - " + data.StudentAddress1;
+                parrent.DadName = data.DadName;
+                parrent.DadPhone = data.DadPhone;
 
-                db.Parrents.Add(parrents);
+                db.Parrents.Add(parrent);
                 db.SaveChanges();
 
-                int status = 200;
-                return View(status);
+                ViewBag.Status = 201;
+                return View();
+            } catch (Exception e)
+            {
+                ViewBag.Status = 301;
+                return View();
             }
+           
 
-            return View();
         }
 
         public IActionResult Privacy()
         {
-            IEnumerable<Students> studens = db.Students.Select(s => s).ToList();
-            return View(studens);
+            return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

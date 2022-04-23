@@ -2,6 +2,8 @@
 {
     public class FormSubmit
     {
+        public String? Id { get; set; }
+
         public String? StudentId { get; set; }
 
         public String? StudentName { get; set; }

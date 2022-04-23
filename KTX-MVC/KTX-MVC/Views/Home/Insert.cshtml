@@ -10,7 +10,7 @@
 }
 <div class="text-center">
     <h3>@ViewBag.Content</h3>
-    <h3 id="status" hidden>@ViewBag.status</h3>
+    <h3>@ViewBag.status</h3>
     <h4><span class="inputRequire">*</span> @ViewBag.Note</h4>
 
     @using (Html.BeginForm("Insert", "Home", FormMethod.Post, new { id = "stdform" }))
@@ -36,13 +36,13 @@
 
                         <div class="form-group">
                                 <label for="inputEmail">Email (<span class="inputRequire">*</span>)</label>
-                                <input type="email" class="form-control" id="inputEmail"  name="StudentEmail" required>
+                                <input type="text" class="form-control" id="inputEmail"  name="StudentEmail" required>
                         </div>
 
                          <div class="form-group">
                                 <label for="inputEmail">Số CMND/CCCD (<span class="inputRequire">*</span>)</label>
                                 <input type="text" class="form-control" id="inputID" maxlength="12"  name="StudentId" required onpast="return false;" onKeyPress="return isNumber(event);">
-                                <input type="text" hidden class="form-control" id="ID" maxlength="12"  name="Id" required onpast="return false;" onKeyPress="return isNumber(event);">
+                                <input type="text" class="form-control" id="ID" maxlength="12"  name="Id" required onpast="return false;" onKeyPress="return isNumber(event);">
                         </div>
 
                     </div>
@@ -62,7 +62,7 @@
                         
                          <div class="form-group">
                                 <label for="inputURL">Link Facebook (<span class="inputRequire">*</span>)</label>
-                                <input type="url" class="form-control" id="inputURL"  name="StudentLink" required>
+                                <input type="text" class="form-control" id="inputURL"  name="StudentLink" required>
                         </div>
          
                     </div>
@@ -114,7 +114,7 @@
                 </div>
                 <div class="form-group">
                     <label for="inputParrentPhone">Số điện thoại phụ huynh (Bố hoặc mẹ) (<span class="inputRequire">*</span>)</label>
-                    <input type="text" class="form-control" id="inputParrentPhone" name="DadPhone" required onpast="return false;" onKeyPress="return isNumber(event);">
+                    <input type="text" class="form-control" id="inputParrentPhone" name="DadPhone" required>
                 </div>
             </div>
         </div>
@@ -175,7 +175,7 @@
                     <label for="inputParrentPhone">Minh chứng (<span class="inputRequire">*</span>)</label>
                     <div class="custom-file">
                         <input type="file" class="custom-file-input" id="customFile" name="StudentPrioritizeImage" required>
-                        <label class="custom-file-label" id="labelFile" for="customFile">Choose file</label>
+                        <label class="custom-file-label" for="customFile">Choose file</label>
                     </div>
                 </div>
 
@@ -466,41 +466,11 @@
         }
     }
 
-    function alertStatus() 
-    {
-        var status = document.getElementById('status').textContent;
-        if(status == "201"){
-            window.alert("Lưu thành công!");
-        }
-
-        if(status == "301"){
-           window.alert("Thất bại.");
-        }
-    }
-
-    function updateFile() 
-    {
-        var inputSpecialized = document.getElementById('customFile');
-        if(inputSpecialized)
-        {
-            inputSpecialized.addEventListener('change', function()
-            {
-                var inputFilel = document.getElementById('labelFile');
-                if(inputFilel)
-                {
-                    inputFilel.textContent = this.files[0].name;
-                }          
-            });
-        }
-    }
-    
     window.onload = function() {
        validateDateInput();
        updateValueMajor();
        updateValueAdress();
        updateValueId();
-       alertStatus();
-       updateFile();
     }
     
 </script>

@@ -6,6 +6,7 @@ namespace KTX_MVC.Models
     public class Students
     {
         [Key]
+        [ForeignKey("StudentsId")]
         public String? Id { get; set; }
         public String? StudentName { get; set; }
         public DateTime? StudentDob { get; set; }

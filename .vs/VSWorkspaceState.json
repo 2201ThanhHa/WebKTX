@@ -1,11 +1,14 @@
 {
   "ExpandedNodes": [
     "",
-    "\\KTX",
-    "\\KTX\\KTX",
+    "\\KTX-MVC",
+    "\\KTX-MVC\\KTX-MVC",
+    "\\KTX-MVC\\KTX-MVC\\Views",
+    "\\KTX-MVC\\KTX-MVC\\Views\\Home",
+    "\\KTX-MVC\\KTX-MVC\\Views\\Shared",
     "\\KTX\\KTX\\Views",
     "\\KTX\\KTX\\Views\\Home"
   ],
-  "SelectedNode": "\\KTX\\KTX.sln",
+  "SelectedNode": "\\KTX-MVC\\KTX-MVC\\Views\\Home\\Privacy.cshtml",
   "PreviewInSolutionExplorer": false
 }
