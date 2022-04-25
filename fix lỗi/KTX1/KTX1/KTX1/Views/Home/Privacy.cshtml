@@ -408,8 +408,10 @@
 
     function updateValueAdress() {
         var inputSpecialized = document.getElementById('inputAddress1');
+        console.log(inputSpecialized);
         if(inputSpecialized){
             inputSpecialized.addEventListener('change', function(){
+
                  updateValueAdressDistrict(inputSpecialized.value);
                  updateValueAdressCommune(inputSpecialized.value);
             });
@@ -1129,7 +1131,7 @@
                     inputMajors.appendChild(opt);
                     var opt = document.createElement('option');
                     opt.value = "Đăk Tơ Ver";
-                    opt.innerHTML = "Đăk Tơ Ver;
+                    opt.innerHTML = "Đăk Tơ Ver";
                     inputMajors.appendChild(opt);
                     var opt = document.createElement('option');
                     opt.value = "Ia Nhin";
