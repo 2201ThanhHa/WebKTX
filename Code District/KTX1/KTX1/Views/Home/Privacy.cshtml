@@ -1,0 +1,536 @@
+﻿@{
+    ViewData["Title"] = "Privacy Policy";
+}
+
+@{
+     ViewData["Title"] = "Đăng nhập";
+     ViewData["Content"] = "ĐĂNG KÝ CHỖ Ở TẠI KÝ TÚC XÁ TRƯỜNG ĐẠI HỌC KINH TẾ - ĐẠI HỌC ĐÀ NẴNG";
+     ViewData["Note"] = "Đề nghị sinh viên điền thông tin trung thực và chính xác";
+    
+}
+<div class="text-center">
+    <h3>@ViewBag.Content</h3>
+    <h3 id="status" hidden>@ViewBag.status</h3>
+    <h4><span class="inputRequire">*</span> @ViewBag.Note</h4>
+
+    @using (Html.BeginForm("Insert", "Home", FormMethod.Post, new { id = "stdform" }))
+    {
+
+        <div class="card mx-auto my-3 text-left" style="max-width: 70%;">
+            <div class="card-header bg-primary">
+                THÔNG TIN CÁ NHÂN
+            </div>
+            <div class="card-body">
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                                <label for="inputName">Họ và tên (<span class="inputRequire">*</span>) </label>
+                                <input type="text" class="form-control" id="inputName" name="StudentName" required>
+                        </div>
+
+                         <div class="form-group">
+                                <label for="inputDob">Ngày sinh (<span class="inputRequire">*</span>)</label>
+                                <input type="date" class="form-control" id="inputDob"  name="StudentDob" required>
+                        </div>
+
+                        <div class="form-group">
+                                <label for="inputEmail">Email (<span class="inputRequire">*</span>)</label>
+                                <input type="email" class="form-control" id="inputEmail"  name="StudentEmail" required>
+                        </div>
+
+                         <div class="form-group">
+                                <label for="inputEmail">Số CMND/CCCD (<span class="inputRequire">*</span>)</label>
+                                <input type="text" class="form-control" id="inputID" maxlength="12" minlength="9"  name="StudentId" required onpast="return false;" onKeyPress="return isNumber(event);">
+                                <input type="text" hidden class="form-control" id="ID" maxlength="12" minlength="9" name="Id" required onpast="return false;" onKeyPress="return isNumber(event);">
+                        </div>
+
+                    </div>
+                    <div class="col-sm-6">
+                         <div class="form-group">
+                                <label for="inputPhone">Số điện thoại (<span class="inputRequire">*</span>)</label>
+                                <input type="text" class="form-control" id="inputPhone"  maxlength="13" minlength="10" name="StudentPhone" required onpast="return false;" onKeyPress="return isNumber(event);">
+                        </div>
+
+                        <label for="inputSex">Giới tính (<span class="inputRequire">*</span>)</label>
+                        <select class="form-control" id="inputSex" required name="StudentSex">
+                            <option  selected></option>
+                            <option value="true">Nam</option>
+                            <option value="false">Nữ</option>
+                        </select>
+
+                        
+                         <div class="form-group">
+                                <label for="inputURL">Link Facebook (<span class="inputRequire">*</span>)</label>
+                                <input type="url" class="form-control" id="inputURL"  name="StudentLink" required>
+                        </div>
+         
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="card mx-auto my-3 text-left" style="max-width: 70%;">
+            <div class="card-header bg-primary">
+                THÔNG TIN LIÊN LẠC VỚI PHỤ HUYNH
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="inputAddress">Địa chỉ liên lạc của gia đình (<span class="inputRequire">*</span>)</label>
+                </div>
+                <div class="container">
+                    <div class="form-group row">
+                        <div class="col-sm pl-0">
+                             <select class="form-control" id="inputAddress1"  name="StudentAddress1" required>
+                                <option value = "0" selected >--- Tỉnh / Thành phố ---</option>
+                            </select>
+                
+                        </div>
+                        <div class="col-sm">
+                             <select class="form-control" id="inputAddress2" name="StudentAddress2" required>
+                                <option value = "0" selected >--- Quận/ Huyện ---</option>
+                            </select>
+                 
+                        </div>
+                        <div class="col-sm pr-0">
+                             <select class="form-control" id="inputAddress3" name="StudentAddress3" required>
+                                <option value = "0" selected >--- Xã / Phường ---</option>
+                            </select>
+                    
+                        </div>
+                    </div>
+                </div>
+              
+                <div class="form-group">
+                    <label for="inputAddress">Địa chỉ chi tiết (<span class="inputRequire">*</span>)</label>
+                    <input type="text" class="form-control" id="inputAddress" name="StudentAddress" required>
+                </div>
+                <div class="form-group">
+                    <label for="inputParrentName">Họ tên phụ huynh (Bố hoặc mẹ) (<span class="inputRequire">*</span>)</label>
+                    <input type="text" class="form-control" id="inputParrentName" name="DadName" required>
+                </div>
+                <div class="form-group">
+                    <label for="inputParrentPhone">Số điện thoại phụ huynh (Bố hoặc mẹ) (<span class="inputRequire">*</span>)</label>
+                    <input type="text" class="form-control" id="inputParrentPhone" maxlength="13" minlength="10"  name="DadPhone" required onpast="return false;" onKeyPress="return isNumber(event);">
+                </div>
+            </div>
+        </div>
+
+        <div class="card m-auto text-left" style="max-width: 70%;">
+            <div class="card-header bg-primary">
+                THÔNG TIN NGÀNH TRÚNG TUYỂN
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="inputParrentPhone">Ngành trúng tuyển</label>
+                    <select class="form-control" id="inputSpecialized" name="StudentSpecialized" >
+                        <option selected></option>
+                        <option value = "1">Kinh Doanh Quốc Tế</option>
+                        <option value = "2">Quản Trị Kinh Doanh</option>
+                        <option value = "3">Quản trị dịch vụ du lịch và lữ hành</option>
+                        <option value = "4">Kinh Tế</option>
+                        <option value = "5">Thống kê Kinh tế</option>
+                        <option value = "6">Kế Toán</option>
+                        <option value = "7">Tài chính ngân hàng</option>
+                        <option value = "8">Kinh doanh thương mại</option>
+                        <option value = "9">Quản lý nhà nước</option>
+                        <option value = "10">Marketing</option>
+                        <option value = "11">Luật Kinh tế</option>
+                        <option value = "12">Hệ thống thông tin quản lý</option>
+                        <option value = "13">Quản trị nhân lực</option>
+                        <option value = "14">Kiểm toán</option>
+                        <option value = "15">Luật</option>
+                        <option value = "16">Thương mại điện tử</option>
+                        <option value = "17">Quản trị Khách sạn</option>
+                        <option value = "18">Khoa học dữ liệu & Phân tích kinh doanh</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="inputParrentPhone">Chuyên ngành dự kiến đăng ký (Nếu có)</label>
+                    <select class="form-control" id="inputMajors" name="StudentMajors">
+                        <option selected></option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mx-auto my-3 text-left" style="max-width: 70%;">
+            <div class="card-header bg-primary">
+                ĐỐI TƯỢNG ƯU TIÊN
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="inputPrioritize">Đối tượng ưu tiên (<span class="inputRequire">*</span>)</label>
+                    <select class="form-control" id="inputPrioritize" name="StudentPrioritize" required>
+                        <option value = "1">ĐT1: Sinh viên đạt giải Quốc gia hoặc Quốc tế</option>
+                        <option value = "2">ĐT2: Sinh viên là con của liệt sỹ</option>
+                        <option value = "3">ĐT3: Sinh viên là con của thương binh</option>
+                        <option value = "4">ĐT4: Sinh viên người dân tộc thiểu số</option>
+                        <option value = "5">ĐT5: Sinh viên mồ côi cả cha lẫn mẹ</option>
+                        <option value = "6">ĐT6: Sinh viên là người khuyết tật</option>
+                        <option value = "7">ĐT7: Sinh viên có hộ khẩu thuộc xã miền núi và gia đình có HCKK</option>
+                        <option value = "8">ĐT8: Sinh viên thuộc gia đình hộ Nghèo</option>
+                        <option value = "9">ĐT9: Sinh viên thuộc hộ Cận nghèo</option>
+                        <option value = "10">ĐT10: Sinh viên mồ côi Cha hoặc Mẹ và gia đình có HCKK</option>
+                        <option value = "11">ĐT11: Sinh viên có hộ khẩu thuộc Xã Bãi ngang ven biển có HCKK</option>
+                        <option value = "12">ĐT12: Sinh viên có hộ khẩu thuộc Xã miền núi</option>
+                        <option value = "13">ĐT13: Sinh viên có hộ khẩu thuộc Xã bãi ngang ven biển</option>                    
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="inputParrentPhone">Minh chứng (<span class="inputRequire">*</span>)</label>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="customFile" name="StudentPrioritizeImage" required>
+                        <label class="custom-file-label" id="labelFile" for="customFile">Choose file</label>
+                    </div>
+                </div>
+
+                 <div class="form-group">
+                    <label for="inputStudentNote">Ghi chú (Nếu có)</label>
+                    <input type="text" class="form-control" id="inputStudentNote" name="StudentNote">
+                </div>
+
+            </div>
+        </div>
+
+        <input type="submit" class="btn btn-primary " value="Đăng ký" />
+
+    }
+
+</div>
+
+<script type="text/javascript">
+    var provinces;
+    
+    fetch('https://provinces.open-api.vn/api/?depth=3', {
+      method: 'GET', // or 'PUT'
+    })
+    .then(response => response.json())
+    .then(data => {
+        provinces = data;
+        var inputSpecialized = document.getElementById('inputAddress1');
+        if(inputSpecialized){
+             for (let i = 0; i < data.length; i++) {
+                var opt = document.createElement('option');
+                opt.id = data[i].code;
+                opt.value = data[i].name;
+                opt.innerHTML = data[i].name;
+                inputSpecialized.appendChild(opt);
+            }
+        }
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+
+    function isNumber(evt) {
+        evt = (evt) ? evt : window.event;
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if ((charCode > 31 && charCode < 48) || charCode > 57) {
+            return false;
+        }
+        return true;
+    }
+
+    function validateDateInput() {
+        document.getElementById('inputDob').min = "1000-01-01";
+        document.getElementById('inputDob').max = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().split("T")[0];
+    }
+
+    function updateValueMajor() 
+    {
+        var inputSpecialized = document.getElementById('inputSpecialized');
+        if(inputSpecialized)
+        {
+            inputSpecialized.addEventListener('change', function()
+            {
+                  var inputMajors = document.getElementById('inputMajors');
+                  if(inputMajors)
+                  {
+                        inputMajors.innerHTML = "";
+                        switch (inputSpecialized.value) 
+                        {
+                           case "1":
+                                var opt = document.createElement('option');
+                                opt.value = 1;
+                                opt.innerHTML = "Ngoại thương (K01)";
+                                inputMajors.appendChild(opt);
+                                break;
+                           case "2":
+                                var opt = document.createElement('option');
+                                opt.value = 2;
+                                opt.innerHTML = "Quản trị kinh doanh tổng quát (K02)";
+                                inputMajors.appendChild(opt);
+                                var opt = document.createElement('option');
+                                opt.value = 16;
+                                opt.innerHTML = "Quản trị tài chính (K16)";
+                                inputMajors.appendChild(opt);
+                                var opt = document.createElement('option');
+                                opt.value = 25;
+                                opt.innerHTML = "Quản trị chuỗi cung ứng và Logistics (K25)";
+                                inputMajors.appendChild(opt);
+                                var opt = document.createElement('option');
+                                opt.value = 30;
+                                opt.innerHTML = "Kinh doanh số (K30)";
+                                inputMajors.appendChild(opt);
+                                break;
+                           case "3":
+                                var opt = document.createElement('option');
+                                opt.value = 3;
+                                opt.innerHTML = "Quản trị kinh doanh du lịch (K03)";
+                                inputMajors.appendChild(opt);
+                                var opt = document.createElement('option');
+                                opt.value = 26;
+                                opt.innerHTML = "Quản trị sự kiện (K26)";
+                                inputMajors.appendChild(opt);
+                                break;
+                           case "4":
+                                var opt = document.createElement('option');
+                                opt.value = 4;
+                                opt.innerHTML = "Kinh tế phát triển (K04)";
+                                inputMajors.appendChild(opt);
+                                var opt = document.createElement('option');
+                                opt.value = 11;
+                                opt.innerHTML = "Kinh tế và quản lý công (K11)";
+                                inputMajors.appendChild(opt);
+                                var opt = document.createElement('option');
+                                opt.value = 20;
+                                opt.innerHTML = "Kinh tế đầu tư (K20)";
+                                inputMajors.appendChild(opt);
+                                var opt = document.createElement('option');
+                                opt.value = 32;
+                                opt.innerHTML = "Kinh tế quốc tế (K32)";
+                                inputMajors.appendChild(opt);
+                                break;
+                           case "5":
+                                var opt = document.createElement('option');
+                                opt.value = 5;
+                                opt.innerHTML = "Thống kê Kinh tế - Xã hội (K05)";
+                                inputMajors.appendChild(opt);
+                                break;
+                           case "6":
+                                var opt = document.createElement('option');
+                                opt.value = 6;
+                                opt.innerHTML = "Kế toán (K06)";
+                                inputMajors.appendChild(opt);
+                                break;
+                           case "7":
+                                var opt = document.createElement('option');
+                                opt.value = 7;
+                                opt.innerHTML = "Ngân hàng (K07)";
+                                inputMajors.appendChild(opt);
+                                var opt = document.createElement('option');
+                                opt.value = 15;
+                                opt.innerHTML = "Tài chính doanh nghiệp (K15)";
+                                inputMajors.appendChild(opt);
+                                var opt = document.createElement('option');
+                                opt.value = 24;
+                                opt.innerHTML = "Tài chính công (K24)";
+                                inputMajors.appendChild(opt);
+                                break;
+                           case "8":
+                                var opt = document.createElement('option');
+                                opt.value = 8;
+                                opt.innerHTML = "Quản trị kinh doanh thương mại (K08)";
+                                inputMajors.appendChild(opt);
+                                break;
+                           case "9":
+                                var opt = document.createElement('option');
+                                opt.value = 9;
+                                opt.innerHTML = "Kinh tế chính trị (K09)";
+                                inputMajors.appendChild(opt);
+                                var opt = document.createElement('option');
+                                opt.value = 27;
+                                opt.innerHTML = "Hành chính công (K27)";
+                                inputMajors.appendChild(opt); 
+                                break;
+                           case "10":
+                                var opt = document.createElement('option');
+                                opt.value = 12;
+                                opt.innerHTML = "Quản trị Marketing (K12)";
+                                inputMajors.appendChild(opt);
+                                var opt = document.createElement('option');
+                                opt.value = 28;
+                                opt.innerHTML = "Truyền thông Marketing (K28)";
+                                inputMajors.appendChild(opt);
+                                var opt = document.createElement('option');
+                                opt.value = 31;
+                                opt.innerHTML = "Marketing số (K31)";
+                                inputMajors.appendChild(opt);
+                                break;
+                           case "11":
+                                var opt = document.createElement('option');
+                                opt.value = 13;
+                                opt.innerHTML = "Luật kinh doanh (K13)";
+                                inputMajors.appendChild(opt);
+                                break;
+                           case "12":
+                                var opt = document.createElement('option');
+                                opt.value = 14;
+                                opt.innerHTML = "Tin học quản lý (K14)";
+                                inputMajors.appendChild(opt);
+                                var opt = document.createElement('option');
+                                opt.value = 21;
+                                opt.innerHTML = "Quản trị Hệ thống thông tin (K21)";
+                                inputMajors.appendChild(opt);
+                                break;
+                           case "13":
+                                var opt = document.createElement('option');
+                                opt.value = 17;
+                                opt.innerHTML = "Quản trị nguồn nhân lực (K17)";
+                                inputMajors.appendChild(opt);
+                                break;
+                           case "14":
+                                var opt = document.createElement('option');
+                                opt.value = 18;
+                                opt.innerHTML = "Kiểm toán (K18)";
+                                inputMajors.appendChild(opt);
+                                break;
+                           case "15":
+                                var opt = document.createElement('option');
+                                opt.value = 19;
+                                opt.innerHTML = "Luật học (K19)";
+                                inputMajors.appendChild(opt);
+                                break;
+                           case "16":
+                                var opt = document.createElement('option');
+                                opt.value = 22;
+                                opt.innerHTML = "Thương mại điện tử (K22)";
+                                inputMajors.appendChild(opt);
+                                break;
+                           case "17":
+                                var opt = document.createElement('option');
+                                opt.value = 23;
+                                opt.innerHTML = "Quản trị khách sạn (K23)";
+                                inputMajors.appendChild(opt);
+                                break;
+                           case "18":
+                                var opt = document.createElement('option');
+                                opt.value = 29;
+                                opt.innerHTML = "Khoa học dữ liệu và Phân tích kinh doanh (K29)";
+                                inputMajors.appendChild(opt);
+                                break;
+                  
+                        }
+                   }
+            });
+        }
+    }
+
+    function updateValueAdress() {
+        var inputSpecialized = document.getElementById('inputAddress1');
+        if(inputSpecialized){
+            inputSpecialized.addEventListener('change', function(){ 
+                var value = inputSpecialized.options[inputSpecialized.selectedIndex].id;
+                 updateValueAdressDistrict(value);
+                 updateValueAdressCommune();
+            });
+        }
+    }
+
+    function updateValueAdressDistrict(value) {
+        var inputMajors = document.getElementById('inputAddress2');
+        if(inputMajors){
+            inputMajors.innerHTML = "";
+           
+            var list = provinces[value-1].districts;
+             console.log(list);
+            for(let i = 0; i< list.length;i++){
+                var opt = document.createElement('option');
+                opt.setAttribute("parent",value);
+                opt.setAttribute("code",list[i].code);
+                opt.value = list[i].name;
+                opt.innerHTML = list[i].name;
+                inputMajors.appendChild(opt);
+            }
+             
+            inputMajors.addEventListener('change', function(){ 
+                 updateValueAdressCommune();
+            });
+                      
+        }
+    }
+
+    function updateValueAdressCommune() {
+        var inputMajors = document.getElementById('inputAddress3');
+        if(inputMajors){
+            inputMajors.innerHTML = "";
+            var pr2 = document.getElementById('inputAddress2');
+            var prin = pr2.options[pr2.selectedIndex].getAttribute("parent");
+            var dist = pr2.options[pr2.selectedIndex].getAttribute("code");
+            var list = provinces[prin-1].districts;
+             console.log(prin,dist,list);
+            for(let i = 0; i< list.length;i++){
+                if(list[i].code == dist){
+                    var elm = list[i].wards;
+                    for(let ii = 0; ii< elm.length;ii++){
+                        var opt = document.createElement('option');
+                        opt.setAttribute("parentPr",prin);
+                        opt.setAttribute("parentDi",dist);
+                        opt.setAttribute("code",elm[ii].code);
+                        opt.value = elm[ii].name;
+                        opt.innerHTML = elm[ii].name;
+                        inputMajors.appendChild(opt);
+                    }
+                }
+                
+            }
+                      
+        }
+    }
+
+     function updateValueId() 
+    {
+        var inputSpecialized = document.getElementById('inputID');
+        if(inputSpecialized)
+        {
+            inputSpecialized.addEventListener('change', function()
+            {
+                  var inputMajors = document.getElementById('ID');
+                  if(inputMajors)
+                  {
+                     inputMajors.value = this.value;
+                  }
+            });
+        }
+    }
+
+    function alertStatus() 
+    {
+        var status = document.getElementById('status').textContent;
+        if(status == "201"){
+            window.alert("Lưu thành công!");
+        }
+
+        if(status == "301"){
+           window.alert("Thất bại.");
+        }
+    }
+
+    function updateFile() 
+    {
+        var inputSpecialized = document.getElementById('customFile');
+        if(inputSpecialized)
+        {
+            inputSpecialized.addEventListener('change', function()
+            {
+                var inputFilel = document.getElementById('labelFile');
+                if(inputFilel)
+                {
+                    inputFilel.textContent = this.files[0].name;
+                }          
+            });
+        }
+    }
+    
+    window.onload = function() {
+       validateDateInput();
+       updateValueMajor();
+       updateValueAdress();
+       updateValueId();
+       alertStatus();
+       updateFile();
+    }
+    
+</script>

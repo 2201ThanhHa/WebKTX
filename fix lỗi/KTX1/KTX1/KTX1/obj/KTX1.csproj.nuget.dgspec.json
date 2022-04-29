@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\DotNET\\fix lỗi\\KTX1\\KTX1\\KTX1\\KTX1.csproj": {}
+    "C:\\Users\\haptt\\source\\repos\\WebKTX\\fix lỗi\\KTX1\\KTX1\\KTX1\\KTX1.csproj": {}
   },
   "projects": {
-    "D:\\DotNET\\fix lỗi\\KTX1\\KTX1\\KTX1\\KTX1.csproj": {
+    "C:\\Users\\haptt\\source\\repos\\WebKTX\\fix lỗi\\KTX1\\KTX1\\KTX1\\KTX1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\DotNET\\fix lỗi\\KTX1\\KTX1\\KTX1\\KTX1.csproj",
+        "projectUniqueName": "C:\\Users\\haptt\\source\\repos\\WebKTX\\fix lỗi\\KTX1\\KTX1\\KTX1\\KTX1.csproj",
         "projectName": "KTX1",
-        "projectPath": "D:\\DotNET\\fix lỗi\\KTX1\\KTX1\\KTX1\\KTX1.csproj",
-        "packagesPath": "C:\\Users\\manhp\\.nuget\\packages\\",
-        "outputPath": "D:\\DotNET\\fix lỗi\\KTX1\\KTX1\\KTX1\\obj\\",
+        "projectPath": "C:\\Users\\haptt\\source\\repos\\WebKTX\\fix lỗi\\KTX1\\KTX1\\KTX1\\KTX1.csproj",
+        "packagesPath": "C:\\Users\\haptt\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\haptt\\source\\repos\\WebKTX\\fix lỗi\\KTX1\\KTX1\\KTX1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\manhp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\haptt\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -73,7 +73,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
